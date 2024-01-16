@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PdfView from "./PdfView";
 
 const products = [
   { id: 1, name: "Product 1", prices: [7, 1, 5, 3, 6, 4], maxProfit: 5 },
@@ -16,7 +17,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex gap-8 outline-4 outline-offset-[20px] outline-red-400 outline max-w-[800px] mx-auto my-8 p-2 bg-gray-100">
+    <div className="flex gap-8 outline-4 outline-offset-[20px] outline-rose-600 outline max-w-[800px] w-[800px] p-2 bg-gray-100">
       <ProductList
         products={products}
         selectedProduct={selectedProduct}
@@ -77,7 +78,9 @@ function BestDay({ selectedProduct, onReset }) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-3">
-        <h3 className="uppercase font-bold">Price for the next 6 days</h3>
+        <h3 className="uppercase font-bold">
+          Price for the next {selectedProduct.prices.length} days
+        </h3>
         <div className="grid grid-cols-3 gap-2">
           {selectedProduct.prices.map((price, i) => (
             <p
@@ -139,12 +142,16 @@ function BestDay({ selectedProduct, onReset }) {
                 ? `Great You have gained maximum profit possible. Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit} `
                 : `Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit}`}
             </p>
-            <button
-              className="self-end bg-stone-800 p-1 text-stone-100"
-              onClick={handleReset}
-            >
-              Restart
-            </button>
+            <div>
+              <PdfView text={selectedProduct} currentProfit={currentProfit} />
+
+              <button
+                className="self-end bg-stone-800 p-1 text-stone-100"
+                onClick={handleReset}
+              >
+                Restart
+              </button>
+            </div>
           </div>
         </div>
       )}
