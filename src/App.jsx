@@ -81,6 +81,7 @@ function BestDay({ selectedProduct, onReset }) {
         <h3 className="uppercase font-bold">
           Price for the next {selectedProduct.prices.length} days
         </h3>
+
         <div className="grid grid-cols-3 gap-2">
           {selectedProduct.prices.map((price, i) => (
             <p
@@ -137,7 +138,7 @@ function BestDay({ selectedProduct, onReset }) {
           <div className="fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-10 bg-rose-300 p-8 flex flex-col gap-6 rounded-sm">
             <p className="flex font-medium gap-3 items-center shadow-md p-2 border-l-2 border-stone-900">
               {selectedProduct.maxProfit === 0
-                ? "Hard Luck! There is No better day sell this product that brings you profits!"
+                ? "Hard Luck! There is No better day to sell this product that brings you profits!"
                 : selectedProduct.maxProfit === currentProfit
                 ? `Great You have gained maximum profit possible. Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit} `
                 : `Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit}`}
