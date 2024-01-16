@@ -101,12 +101,9 @@ function BestDay({ selectedProduct, onReset }) {
       </div>
 
       <div className="flex gap-3 font-medium items-center shadow-md p-2 border-l-2 border-stone-900">
-        <p>Buy it on {selectedProduct.prices[left]}</p>
-
-        <p>Sell it on {selectedProduct.prices[right]}</p>
-
-        <p>Profit: {profit}</p>
-
+        <p>Buy it for ${selectedProduct.prices[left]}</p> |
+        <p>Sell it for ${selectedProduct.prices[right]}</p> |
+        <p>Profit: ${profit}</p> |
         <Button
           onClick={() =>
             handleBuyNSell(
@@ -125,8 +122,8 @@ function BestDay({ selectedProduct, onReset }) {
 
       {buyingDate && sellingDate && (
         <div className="flex font-medium gap-3 items-center shadow-md p-2 border-l-2 border-stone-900">
-          {buyingDate && <h2>You Buy it on {buyingDate}</h2>} |
-          {sellingDate && <h2>You sell it on {sellingDate}</h2>} |
+          {buyingDate && <h2>You Bought it for ${buyingDate}</h2>} |
+          {sellingDate && <h2>You sold it for ${sellingDate}</h2>} |
           {buyingDate && sellingDate && (
             <h2>Your current Profit is {currentProfit}</h2>
           )}
@@ -140,8 +137,8 @@ function BestDay({ selectedProduct, onReset }) {
               {selectedProduct.maxProfit === 0
                 ? "Hard Luck! There is No better day to sell this product that brings you profits!"
                 : selectedProduct.maxProfit === currentProfit
-                ? `Great You have gained maximum profit possible. Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit} `
-                : `Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit}`}
+                ? `Great! You have gained the maximum profits possible. Maximum profits $${selectedProduct.maxProfit}, Your Profits $${currentProfit} `
+                : `Maximum profits ${selectedProduct.maxProfit}, Your Profits ${currentProfit}`}
             </p>
             <div className="self-end">
               {/* <PdfView text={selectedProduct} currentProfit={currentProfit} /> */}
