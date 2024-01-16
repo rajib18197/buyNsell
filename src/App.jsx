@@ -142,11 +142,11 @@ function BestDay({ selectedProduct, onReset }) {
                 ? `Great You have gained maximum profit possible. Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit} `
                 : `Maximum profit ${selectedProduct.maxProfit}, Your Profit ${currentProfit}`}
             </p>
-            <div>
+            <div className="self-end">
               {/* <PdfView text={selectedProduct} currentProfit={currentProfit} /> */}
 
               <button
-                className="self-end bg-stone-800 p-1 text-stone-100"
+                className="self-end bg-stone-800 p-1 text-stone-100 rounded"
                 onClick={handleReset}
               >
                 Restart
